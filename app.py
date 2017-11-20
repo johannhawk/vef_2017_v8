@@ -1,6 +1,7 @@
 from bottle import *
 
 from beaker.middleware import SessionMiddleware
+from sys import argv
 
 #session er tíminn þar sem sum notkun browser forritið á vedsidu verða geymd a serverin
 #adal munurin er ad cookies eru geymd a tolvu notandans og sessions a vedsidu serverin dar sem notandi get ekki sed dau
@@ -94,5 +95,5 @@ def static_skrar(skra):
     return static_file(skra, root='./public/')
 
 
-run(app = app,host='localhost', port=8080, debug=True)
+run(app = app,host='0.0.0.0', port=argv[1], debug=True)
 
